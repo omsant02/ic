@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
-const txtFilePath = path.join(__dirname, "identity-connect.txt");
+const txtFilePath = path.join(__dirname, "./static/identity-connect.txt");
 
 app.get("/identity-connect.txt", (req, res) => {
   res.sendFile(txtFilePath);
