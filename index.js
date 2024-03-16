@@ -8,8 +8,10 @@ const staticFolderPath = path.join(__dirname, "static");
 app.use(express.static(staticFolderPath));
 
 app.get("/identity-connect.txt", (req, res) => {
-  res.sendFile(staticFolderPath);
+  const txtFilePath = path.join(staticFolderPath, "identity-connect.txt");
+  res.sendFile(txtFilePath);
 });
+
 app.get("/", (req, res) => {
   res.send("hello");
 });
