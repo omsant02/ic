@@ -2,10 +2,13 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
-const txtFilePath = path.join(__dirname, "./static/identity-connect.txt");
+const staticFolderPath = path.join(__dirname, "static");
+
+// Serve static files from the 'static' folder
+app.use(express.static(staticFolderPath));
 
 app.get("/identity-connect.txt", (req, res) => {
-  res.sendFile(txtFilePath);
+  res.sendFile(staticFolderPath);
 });
 app.get("/", (req, res) => {
   res.send("hello");
